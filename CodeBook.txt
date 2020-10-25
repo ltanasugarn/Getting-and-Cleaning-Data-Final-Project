@@ -1,0 +1,69 @@
+################################################################### 
+# Code Book for Getting and Cleaning Data Course Final Assignment #
+###################################################################
+
+This is the code book for getting and cleaning data course assignment 
+that describes the variables, the data, and any transformations or work 
+that were performed to clean up the data.Each part in this code book 
+correspond directly to section in run_analysis.R that was submitted together.
+Part 1 through 5 reflect instruction 1 to 5 of this assignment.
+
+######################################
+# Part 0: Download and prepare data #
+#####################################
+- Set working directory 
+- Call for dplyr
+- Download and unzip data 
+- Read data to create data frames: features, activities, subject_test, x_test, y_test,
+subject_train, x_train, y_train
+
+########################################################################
+# Part 1: Merges the training and the test sets to create one data set #
+########################################################################
+
+- Use rbind to create data frames X, Y, and Subject from x_train and xtest; y_train and y_test;
+and subject_train and subject_test, accordingly.
+- Use cbind to combind Subject, Y, and X to Merged_data data frame (10299 rows, 563 columns) 
+
+##################################################################################################
+# Part 2: Extracts only the measurements on the mean and standard deviation for each measurement #
+##################################################################################################
+
+- Create Tidaydata from Merge_data by subsetting subject, code, meand, and standard deviation 
+Tiday data has 10299 rows and 88 columns
+
+##################################################################################
+# Part 3: Uses descriptive activity names to name the activities in the data set #
+##################################################################################
+
+- Replace code column in Tidydata by second column of activities data frame
+
+#############################################################################
+# Part 4: Appropriately labels the data set with descriptive variable names #
+#############################################################################
+
+- Replace "Acc" in column's name by "Accelerometer"
+- Replace "Gyro" in column's name by "Gyroscope"
+- Replace "BodyBody" in column's name by "Body"
+- Replace "Mag" in column's name by "Magnitude"
+- Replace "angle" in column's name by "Angle"
+- Replace "gravity" in column's name by "Gravity"
+- Replace all that start with "f" in column's name by "Frequency"
+- Replace all that start with "t" in column's name by "Time"
+
+######################################################################
+# Step 5: From the data set in step 4, creates a second, independent #
+# tidy data set with the average of each variable for each activity  #
+# and each subject.                                                  # 
+# ####################################################################
+
+- Summarize Tidydata groupped by subject and activity to create Final Data
+which has 180 rows and 88 columns 
+- Export Final data to text file.
+
+
+
+
+ 
+ 
+
